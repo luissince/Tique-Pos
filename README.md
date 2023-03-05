@@ -1,5 +1,7 @@
 # Tique Pos
 
+![Tux, the Linux mascot](/assets/tiquepos_logo.png)
+
 Aplicación de ventas del Sistema Ticket Post - AppSauri.
 
 ## Iniciar
