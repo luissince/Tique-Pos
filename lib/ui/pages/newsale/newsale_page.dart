@@ -80,7 +80,8 @@ class _NewSalePageState extends State<NewSalePage> {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
+                            backgroundColor: Colors.white,
+                            // primary: Colors.white,
                             elevation: 0,
                             padding: const EdgeInsets.only(
                               top: 10,
@@ -213,7 +214,8 @@ class _NewSalePageState extends State<NewSalePage> {
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
+                                backgroundColor: Colors.white,
+                                // primary: Colors.white,
                                 elevation: 0,
                                 padding: const EdgeInsets.only(
                                   top: 10,
@@ -264,7 +266,8 @@ class _NewSalePageState extends State<NewSalePage> {
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
+                                backgroundColor: Colors.white,
+                                // primary: Colors.white,
                                 elevation: 0,
                                 padding: const EdgeInsets.only(
                                   top: 10,
@@ -435,7 +438,8 @@ class _NewSalePageState extends State<NewSalePage> {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
+                            backgroundColor: Colors.white,
+                            // primary: Colors.white,
                             elevation: 0,
                             padding: const EdgeInsets.only(
                               top: 10,
@@ -551,7 +555,8 @@ class _NewSalePageState extends State<NewSalePage> {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
-                              primary: const Color(0xff00a46a),
+                              backgroundColor: const Color(0xff00a46a),
+                              // primary: const Color(0xff00a46a),
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 40,
                               ),

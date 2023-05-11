@@ -198,8 +198,8 @@ class _SplashPageState extends State<SplashPage> {
 
         prefs.setString("idusuario", "${user["idusuario"]}");
         prefs.setString("token", response.data["token"]);
-        prefs.setString("email", prefs.getString("email")!);
-        prefs.setString("password", prefs.getString("password")!);
+        prefs.setString("email", payload["email"]);
+        prefs.setString("password", payload["password"]);
 
         appProvider!.isLoading = true;
         appProvider!.isSignout = false;

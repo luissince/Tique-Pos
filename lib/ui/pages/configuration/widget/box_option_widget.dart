@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BoxOptionWidget extends StatelessWidget {
-  final GestureTapCallback onTap;
+  final VoidCallback onTap;
   final bool image;
   final String? path;
   final IconData? icon;
@@ -26,8 +26,12 @@ class BoxOptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
+    return TextButton(
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+      ),
+      onPressed: onTap,
       child: Container(
         margin: const EdgeInsets.only(
           bottom: 15,
@@ -63,6 +67,7 @@ class BoxOptionWidget extends StatelessWidget {
                     title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Colors.black,
                       fontSize: 17,
                     ),
                   ),
@@ -73,6 +78,7 @@ class BoxOptionWidget extends StatelessWidget {
                     subTitle,
                     style: const TextStyle(
                       fontWeight: FontWeight.normal,
+                      color: Colors.black,
                       fontSize: 15,
                     ),
                   )

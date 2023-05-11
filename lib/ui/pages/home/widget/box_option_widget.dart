@@ -8,7 +8,7 @@ class BoxOptionWidget extends StatelessWidget {
   final String title;
   final Color background;
   final Color foreground;
-  final GestureTapCallback onTap;
+  final VoidCallback onTap;
 
   const BoxOptionWidget({
     Key? key,
@@ -23,8 +23,12 @@ class BoxOptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
+    return TextButton(
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+      ),
+      onPressed: onTap,
       child: Container(
         width: (size.width - 60) * 0.5,
         height: 100,

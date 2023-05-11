@@ -8,8 +8,8 @@ class ApiRest {
 
   static void configureDio() {
     //_dio.options.baseUrl = 'https://app.tiquepos2.com/api';
-    //_dio.options.baseUrl = 'http://172.16.2.32:8000/api';
-    _dio.options.baseUrl = 'http://192.168.101.14:8000/api';
+    _dio.options.baseUrl = 'http://172.16.2.32:8000/api';
+    // _dio.options.baseUrl = 'http://192.168.101.10:8000/api';
 
     _dio.options.connectTimeout = 10000; //10s
     _dio.options.receiveTimeout = 7000;

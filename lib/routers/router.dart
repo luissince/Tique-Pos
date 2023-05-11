@@ -1,3 +1,5 @@
+import 'package:appsauri/ui/pages/configuration/printers/printers_page.dart';
+import 'package:appsauri/ui/pages/products/products_page.dart';
 import 'package:flutter/material.dart';
 
 import '../ui/pages/saleslist/saleslist_page.dart';
@@ -14,4 +16,6 @@ Map<String, WidgetBuilder> routers = <String, WidgetBuilder>{
   CongiturationPage.id: (_) => const CongiturationPage(),
   NewSalePage.id: (_) => const NewSalePage(),
   SalesListPage.id: (_) => const SalesListPage(),
+  PrintersPage.id: (_) => const PrintersPage(),
+  ProductsPage.id: (_) => const ProductsPage(),
 };

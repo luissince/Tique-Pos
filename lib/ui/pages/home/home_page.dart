@@ -1,4 +1,5 @@
 import 'package:appsauri/ui/constants.dart';
+import 'package:appsauri/ui/pages/products/products_page.dart';
 import 'package:appsauri/ui/pages/saleslist/saleslist_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -128,7 +129,8 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () => _loadHomeData(),
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
-                  primary: const Color(0xff00a46a),
+                  backgroundColor: const Color(0xff00a46a),
+                  // primary: const Color(0xff00a46a),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 40,
                   ),
@@ -248,7 +250,12 @@ class _HomePageState extends State<HomePage> {
                     title: "Productos",
                     background: const Color(0xff0569d9),
                     foreground: Colors.white,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        ProductsPage.id,
+                      );
+                    },
                   ),
                 ],
               ),

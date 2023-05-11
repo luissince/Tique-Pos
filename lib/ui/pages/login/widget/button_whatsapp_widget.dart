@@ -1,5 +1,7 @@
 import 'package:appsauri/ui/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ButtonWhatsappWidget extends StatelessWidget {
   const ButtonWhatsappWidget({
@@ -27,7 +29,7 @@ class ButtonWhatsappWidget extends StatelessWidget {
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             elevation: 0,
-            primary: const Color(0xffffffff),
+            backgroundColor: const Color(0xffffffff),
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 10,
@@ -37,9 +39,9 @@ class ButtonWhatsappWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.whatsapp,
-                color: colorPrimary,
+              SvgPicture.asset(
+                "assets/whatsapp.svg",
+                height: 32,
               ),
               const SizedBox(
                 height: 5,

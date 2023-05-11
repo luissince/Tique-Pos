@@ -80,12 +80,34 @@ class Alert {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text(
-            'Ups!!',
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w900,
-            ),
+          title: Row(
+            children: [
+              Image.asset(
+                "assets/tiquepos_logo.png",
+                height: 30,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Row(
+                children: const [
+                  Text(
+                    "TIQUE",
+                    style: TextStyle(
+                      color: Color(0xff00a46a),
+                      fontSize: 17,
+                    ),
+                  ),
+                  Text(
+                    "POS",
+                    style: TextStyle(
+                        color: Color(0xff00a46a),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17),
+                  )
+                ],
+              ),
+            ],
           ),
           content: SingleChildScrollView(
             child: ListBody(
@@ -106,7 +128,7 @@ class Alert {
                 'Aceptar',
                 style: TextStyle(
                   fontSize: 15,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.normal,
                   color: Colors.white,
                 ),
               ),
@@ -124,7 +146,7 @@ class Alert {
                 'Cancelar',
                 style: TextStyle(
                     fontSize: 15,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.normal,
                     color: Color(0xff00a46a)),
               ),
               onPressed: () {

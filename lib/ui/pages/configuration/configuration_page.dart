@@ -1,7 +1,9 @@
 import 'package:appsauri/ui/constants.dart';
+import 'package:appsauri/ui/pages/configuration/printers/printers_page.dart';
 import 'package:appsauri/ui/pages/login/login_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -15,6 +17,7 @@ class CongiturationPage extends StatefulWidget {
   static String id = "configuration_page";
 
   const CongiturationPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _CongiturationPageState();
 }
@@ -59,7 +62,46 @@ class _CongiturationPageState extends State<CongiturationPage> {
                     subTitle: "Información y configuración de la empresa",
                   ),
                   BoxOptionWidget(
-                    onTap: () {},
+                    onTap: () async {
+                      PermissionStatus bluetoothScan =
+                          await Permission.bluetoothScan.request();
+
+                      Permission.location.request();
+
+                      // PermissionStatus bluetooth =
+                      //     await Permission.bluetooth.request();
+
+                      // PermissionStatus bluetoothConnect =
+                      //     await Permission.bluetoothConnect.request();
+
+                      print(bluetoothScan.isGranted);
+                      // print(bluetooth.isGranted);
+
+                      return;
+
+                      if (bluetoothScan.isGranted) {
+                        Navigator.pushNamed(
+                          context,
+                          PrintersPage.id,
+                        );
+                        return;
+                      }
+
+                      openAppSettings();
+
+                      // var status = await Permission.bluetoothConnect.request();
+
+                      // if (status.isGranted) {
+                      //   print(status);
+                      //   Navigator.pushNamed(
+                      //     context,
+                      //     PrintersPage.id,
+                      //   );
+                      // } else {
+                      //   print(status);
+                      //   openAppSettings();
+                      // }
+                    },
                     image: true,
                     path: "assets/impresora.svg",
                     pathSize: 32,
@@ -84,31 +126,10 @@ class _CongiturationPageState extends State<CongiturationPage> {
                   ),
                   BoxOptionWidget(
                     onTap: () async {
-                      SimpleDialogWidget.showCustomDialog(
-                        context,
-                        message: 'Cerrando sesión...',
-                      );
-                      dynamic response = await appProvider!.logout();
-
-                      if (response is Response) {
-                        SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
-                        prefs.clear();
-
-                        _navigateLogin(appProvider!);
-                        return;
-                      }
-
-                      if (response is Map) {
-                        if (response["type"] == DioErrorType.cancel) return;
-
-                        _alertError(response["message"]);
-                        return;
-                      }
-
-                      if (response is String) {
-                        _alertError(response);
-                      }
+                      Alert(context: context).showConfirm(
+                          "¿Está seguro de cerrar sesión?.", aceptar: () {
+                        _onEventClose();
+                      });
                     },
                     image: false,
                     icon: Icons.power_settings_new,
@@ -123,6 +144,33 @@ class _CongiturationPageState extends State<CongiturationPage> {
         ),
       ),
     );
+  }
+
+  void _onEventClose() async {
+    SimpleDialogWidget.showCustomDialog(
+      context,
+      message: 'Cerrando sesión...',
+    );
+    dynamic response = await appProvider!.logout();
+
+    if (response is Response) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.clear();
+
+      _navigateLogin(appProvider!);
+      return;
+    }
+
+    if (response is Map) {
+      if (response["type"] == DioErrorType.cancel) return;
+
+      _alertError(response["message"]);
+      return;
+    }
+
+    if (response is String) {
+      _alertError(response);
+    }
   }
 
   void _navigateLogin(AppProvider appProvider) async {
